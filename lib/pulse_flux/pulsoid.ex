@@ -1,5 +1,6 @@
 defmodule PulseFlux.Pulsoid do
   use WebSockex
+  require Logger
 
   alias PulseFlux.Telemetry.HeartRate
 
@@ -18,6 +19,7 @@ defmodule PulseFlux.Pulsoid do
       |> URI.append_query(URI.encode_query(auth))
       |> URI.to_string()
 
+    Logger.info("Connection to Pulsoid")
     WebSockex.start_link(url, __MODULE__, %{})
   end
 
