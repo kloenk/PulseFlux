@@ -1,0 +1,2 @@
+defmodule PulseFlux do
+end
